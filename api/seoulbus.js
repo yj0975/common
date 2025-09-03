@@ -3,10 +3,10 @@ import fetch from 'node-fetch';
 
 export default async function handler(req, res) {
   try {
-    const { routeNo } = req.query;
+    const { busRouteId } = req.query;
     const serviceKey = process.env.SERVICE_KEY;
 
-    const url = `http://ws.bus.go.kr/api/rest/busRouteInfo/getBusRouteList?serviceKey=${serviceKey}&strSrch=${routeNo}`;
+    const url = `http://ws.bus.go.kr/api/rest/buspos/getBusPosByRtid?serviceKey=${serviceKey}&busRouteId=${busRouteId}`;
 
     const response = await fetch(url);
     const xml = await response.text();
