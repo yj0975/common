@@ -11,7 +11,7 @@ export default async function handler(req, res) {
     // }
     // delete queryParams.targetUrl;
     const searchParams = new URLSearchParams(queryParams);
-    const finalUrl = `http://ws.bus.go.kr/api/rest/busRouteInfo/getRoutePath?serviceKey=${serviceKey}&${searchParams.toString()}`;
+    const finalUrl = `http://ws.bus.go.kr/api/rest/busRouteInfo/getStaionByRoute?serviceKey=${serviceKey}&${searchParams.toString()}`;
 
     const response = await fetch(finalUrl);
     const xml = await response.text();
