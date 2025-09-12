@@ -11,7 +11,7 @@ export default async function handler(req, res) {
     const response = await fetch(url);
     const xml = await response.text();
 
-    const json = await parseStringPromise(xml);
+    const json = await parseStringPromise(xml, { explicitArray: false });
 
     res.status(200).json(json);
 
