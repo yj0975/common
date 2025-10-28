@@ -5,11 +5,7 @@ export default async function handler(req, res) {
   try {
     const serviceKey = process.env.SERVICE_KEY;
     const queryParams = req.query;
-    // const targetUrl = queryParams.targetUrl;
-    // if (!targetUrl) {
-    //   return res.status(400).json({ error: 'targetUrl parameter is missing' });
-    // }
-    // delete queryParams.targetUrl;
+    
     const searchParams = new URLSearchParams(queryParams);
     const finalUrl = `http://ws.bus.go.kr/api/rest/busRouteInfo/getStaionByRoute?serviceKey=${serviceKey}&${searchParams.toString()}`;
 
